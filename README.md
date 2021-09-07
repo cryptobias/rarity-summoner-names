@@ -1,15 +1,19 @@
-# Basic Sample Hardhat Project
+# Rarity Summoner Names
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+Are you and your summoners/adventurers tired of just being a number? - Not anymore.
 
-Try running some of the following tasks:
+With this contract, deployed at [0x1e035b7b0675Ef0114dd1659524d22c21e32D4da](https://ftmscan.com/address/0x1e035b7b0675Ef0114dd1659524d22c21e32D4da#writeContract), you are able to give your trusty adventurers a nifty name.
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+Just call the `setName` method with their ID (urgh) and the name you'd like them to have.
+
+It is also possible to rename an adventurer, but this comes with a price (of gold). So you will have to make sure to `claim` your gold on the [Rarity Gold contract](https://ftmscan.com/address/0x2069B76Afe6b734Fb65D1d099E7ec64ee9CC76B2#writeContract) and `approve` the Names contract's burn summoner (`695026`) to spent the `nextRenameCost` amount first.
+
+```
+// first name is free
+names.setName(123, "Harry");
+
+// rename costs exponentially increase per summoner
+rarityGold.claim(123);
+rarityGold.approve(123, 695026, 100e18);
+names.setName(123, "Ron");
 ```
