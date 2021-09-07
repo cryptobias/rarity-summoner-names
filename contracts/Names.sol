@@ -15,6 +15,8 @@ contract Names {
     mapping(uint => string) public names;
     mapping(uint => uint) public nextRenameCost;
 
+    event SummonerNamed(uint summoner, string name);
+
     constructor() {
         // summon a sorcerer to burn gold that is paid for renames
         burn = rarity.next_summoner();
@@ -28,6 +30,7 @@ contract Names {
 
         // store the name
         names[summoner] = name;
+        emit SummonerNamed(summoner, name);
 
         // calculate the next cost and burt it if necessary
         uint renameCost = nextRenameCost[summoner];

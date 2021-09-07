@@ -42,7 +42,7 @@ describe("Names", function () {
 
   it("should set a summoners name", async function() {
      // set the summoner's name
-    await names.setName(summoner, "Harry")
+    await expect(names.setName(summoner, "Harry")).to.emit(names, "SummonerNamed").withArgs(summoner, "Harry");
 
     // expect the name to be stored
     await expect(await names.names(summoner)).to.equal("Harry");
