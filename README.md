@@ -1,5 +1,7 @@
 # Rarity Summoner Names
 
+⚠ __The contract is not audited. Use at your own and your summoners risk!__ ⚠
+
 Are you and your summoners/adventurers tired of just being a number? - Not anymore.
 
 With this contract, deployed at [0x1e035b7b0675Ef0114dd1659524d22c21e32D4da](https://ftmscan.com/address/0x1e035b7b0675Ef0114dd1659524d22c21e32D4da#writeContract), you are able to give your trusty adventurers a nifty name.
