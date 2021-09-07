@@ -25,4 +25,11 @@ describe("Names", function () {
     // expect the name to be stored
     await expect(await names.names(summoner)).to.equal("Harry");
   });
+
+  it("should NOT allow to set a non-owned summoners name", async function() {
+    // try to set first summoner's name and expect it to fail
+    await expect(
+      names.setName(1, "Harry")
+    ).to.be.revertedWith("only the owner can set the name of a summoner");
+  });
 });

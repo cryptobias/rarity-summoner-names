@@ -11,6 +11,7 @@ contract Names {
     mapping(uint => string) public names;
 
     function setName(uint summoner, string memory name) external {
+        require(msg.sender == rarity.ownerOf(summoner), "only the owner can set the name of a summoner");
         names[summoner] = name;
     }
 }
