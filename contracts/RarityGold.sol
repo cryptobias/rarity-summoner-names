@@ -1,20 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.7;
 
-interface rarity {
-    function level(uint) external view returns (uint);
-    function getApproved(uint) external view returns (address);
-    function ownerOf(uint) external view returns (address);
-}
+import "./Rarity.sol";
 
-contract rarity_gold {
+contract RarityGold {
     string public constant name = "Rarity Gold";
     string public constant symbol = "gold";
     uint8 public constant decimals = 18;
 
     uint public totalSupply = 0;
 
-    rarity constant rm = rarity(0xce761D788DF608BD21bdd59d6f4B54b2e27F25Bb);
+    Rarity constant rm = Rarity(0xce761D788DF608BD21bdd59d6f4B54b2e27F25Bb);
 
     mapping(uint => mapping (uint => uint)) public allowance;
     mapping(uint => uint) public balanceOf;
